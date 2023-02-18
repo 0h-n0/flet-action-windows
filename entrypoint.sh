@@ -20,7 +20,7 @@ wine python -m pip install --upgrade pip wheel setuptools
 if [ -f "pyproject.toml" ]; then
     echo "LOAD: pyproject.toml"
     wine poetry install 
-    wine poetry run flet pack $SRCDIR
+    wine flet pack $SRCDIR
 elif [ -f "requirements.txt" ]; then
     echo "LOAD: requirements.txt"
     wine python pip install -r ./requirements.txt
