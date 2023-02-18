@@ -1,7 +1,6 @@
 FROM tobix/pywine:3.10
 
-RUN wine pip install pyinstaller flet poetry
-
+RUN wine pip install pyinstaller flet
 RUN mkdir /src/ 
 VOLUME /src/
 WORKDIR /src/
