@@ -12,7 +12,8 @@ set -e
 # and don't allow that much flexibility to mount volumes
 SRCDIR=$1
 
-cd /src
+ls .
+echo $PWD
 
 wine python -m pip install --upgrade pip wheel setuptools
 
