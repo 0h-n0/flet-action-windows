@@ -16,7 +16,7 @@ wine python -m pip install --upgrade pip wheel setuptools
 
 if [ -f "pyproject.toml" ]; then
     echo "LOAD: pyproject.toml"
-    poetry export --without-hashes --format=requirements.txt > requirements.txt
+    wine poetry export --without-hashes --format=requirements.txt > requirements.txt
     wine python pip install -r ./requirements.txt
     wine flet pack $SRCFILE
 elif [ -f "requirements.txt" ]; then
