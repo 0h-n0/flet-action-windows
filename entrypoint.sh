@@ -15,13 +15,12 @@ SRCFILE=$1
 wine python -m pip install --upgrade pip wheel setuptools
 
 if [ -f "pyproject.toml" ]; then
-    echo "LOAD: pyproject.toml"
-    wine poetry export --without-hashes --format=requirements.txt > requirements.txt
-    wine python pip install -r ./requirements.txt
-    wine flet pack $SRCFILE
+    wine poetry install 
+    wine poetry add pyinstaller==5.5.0 ## downgrade
+    wine poetry run flet pack $SRCFILE
 elif [ -f "requirements.txt" ]; then
     echo "LOAD: requirements.txt"
-    wine python pip install -r ./requirements.txt
+    wine pip install -r ./requirements.txt
     wine flet pack $SRCFILE
 else
     wine flet pack $SRCFILE
