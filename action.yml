@@ -4,11 +4,19 @@ description: 'Customisable GitHub Action to package your flet python code  with 
 branding:
   icon: 'box'
   color: 'blue'
+
 inputs:
-  path:
+  srcfile:
     description: 'set entry-point script file.'
     required: True
     default: "main.py"
+  adddata:
+    description: | 
+      set exteranl static files. this input throws argments to "--add-data" option in flet pack.
+      When you want to inlculde multple static files, you can use "@" as splitter like the following. 
+      ex) hello1.txt@src/hello2.tff
+    required: False
+
 outputs:
   output:
     description: 'The output of PyInstaller'
@@ -17,4 +25,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.path }}
+    - ${{ inputs.srcfile }}
+    - ${{ inputs.adddata }}
