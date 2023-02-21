@@ -15,9 +15,9 @@ fletpack()
         for AD in "${ARGS[@]}"; do
             ADD_DATA="${ADD_DATA} --add-data ${AD}"
         done
-        echo "wine flet pack $1 ${ADD_DATA}"
+        wine flet pack $1 ${ADD_DATA}
     else 
-        echo "wine flet pack $1 "
+        wine flet pack $1
     fi
 }
 
@@ -29,7 +29,7 @@ ADDDATA=$2
 
 if [ -f "requirements.txt" ]; then
     echo "LOAD: requirements.txt"
-    echo "wine pip install -r requirements.txt"
+    wine pip install -r requirements.txt
     fletpack $SRCFILE $ADDDATA
 else
     fletpack $SRCFILE $ADDDATA
