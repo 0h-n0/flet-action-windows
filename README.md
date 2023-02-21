@@ -17,6 +17,15 @@ If you use poetry as package manager, before using this action, you need to dump
 $ poetry export --without-hashes -f requirements.txt --output requirements.txt
 ```
 
+When you would like to add your package into binary, you need to your package at head of `requirementx.txt`. 
+
+```txt.
+install -e .
+...
+...
+...
+```
+
 ## Example
 
 * https://github.com/0h-n0/myflet
@@ -37,7 +46,7 @@ jobs:
       uses: 0h-n0/flet-action-windows@master
       with:
         srcfile: myflet_extlib/main.py
-        adddata: sample.png
+        adddata: sample.png;.
 ```
 
 Multiple files
@@ -52,7 +61,7 @@ jobs:
       uses: 0h-n0/flet-action-windows@master
       with:
         srcfile: myflet_extlib/main.py
-        adddata: assets/sample1.png@assets/sample2.png
+        adddata: assets/sample1.png;.@assets/sample2.png;.
 ```
 
 ### **0.2** Import error of from 
